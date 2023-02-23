@@ -1,29 +1,27 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import styles from "./page.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
-  const initApp =()=>{
-    const hamburgerBtn = document.getElementById('hamburger-button')
-    const mobileMenu = document.getElementById('mobile-menu')
+  const initApp = () => {
+    const hamburgerBtn = document.getElementById("hamburger-button");
+    const mobileMenu = document.getElementById("mobile-menu");
     const toggleMenu = () => {
-      mobileMenu?.classList.toggle('hidden')
-      mobileMenu?.classList.toggle('flex')
-    }
+      mobileMenu?.classList.toggle("hidden");
+      mobileMenu?.classList.toggle("flex");
+    };
 
-    hamburgerBtn?.addEventListener('click',toggleMenu)
-    mobileMenu?.addEventListener('click',toggleMenu)
-  }
+    hamburgerBtn?.addEventListener("click", toggleMenu);
+    mobileMenu?.addEventListener("click", toggleMenu);
+  };
 
   useEffect(() => {
-    initApp()
-  }, [])
-  
+    initApp();
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
@@ -60,12 +58,40 @@ export default function Home() {
           className="absolute top-0 bg-black w-full text-5xl flex-col justify-center origin-top animate-open-menu hidden"
         >
           <button className="text-8xl self-end px-6">&times;</button>
-          <nav className="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
-            <a href="#hero" className="w-full text-center py-6 hover:opacity-90">Home</a>
-            <a href="#rockets" className="w-full text-center py-6 hover:opacity-90">Our Rockets</a>
-            <a href="#testimonials" className="w-full text-center py-6 hover:opacity-90">Testimonials</a>
-            <a href="#contact" className="w-full text-center py-6 hover:opacity-90">Contact Us</a>
-            <a href="#footer" className="w-full text-center py-6 hover:opacity-90">Legal</a>
+          <nav
+            className="flex flex-col min-h-screen items-center py-8"
+            aria-label="mobile"
+          >
+            <a
+              href="#hero"
+              className="w-full text-center py-6 hover:opacity-90"
+            >
+              Home
+            </a>
+            <a
+              href="#rockets"
+              className="w-full text-center py-6 hover:opacity-90"
+            >
+              Our Rockets
+            </a>
+            <a
+              href="#testimonials"
+              className="w-full text-center py-6 hover:opacity-90"
+            >
+              Testimonials
+            </a>
+            <a
+              href="#contact"
+              className="w-full text-center py-6 hover:opacity-90"
+            >
+              Contact Us
+            </a>
+            <a
+              href="#footer"
+              className="w-full text-center py-6 hover:opacity-90"
+            >
+              Legal
+            </a>
           </nav>
         </section>
       </header>

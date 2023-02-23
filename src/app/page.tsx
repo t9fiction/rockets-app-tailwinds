@@ -1,10 +1,30 @@
+'use client';
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import { useEffect } from 'react'
 import styles from "./page.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const initApp =()=>{
+    const hamburgerBtn = document.getElementById('hamburger-button')
+    const mobileMenu = document.getElementById('mobile-menu')
+    const toggleMenu = () => {
+      mobileMenu?.classList.toggle('hidden')
+      mobileMenu?.classList.toggle('flex')
+    }
+
+    hamburgerBtn?.addEventListener('click',toggleMenu)
+    mobileMenu?.addEventListener('click',toggleMenu)
+  }
+
+  useEffect(() => {
+    initApp()
+  }, [])
+  
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
       <header className="bg-teal-700 text-white sticky top-0 z-10">
@@ -35,6 +55,19 @@ export default function Home() {
             </nav>
           </div>
         </section>
+        <section
+          id="mobile-menu"
+          className="absolute top-0 bg-black w-full text-5xl flex-col justify-center origin-top animate-open-menu hidden"
+        >
+          <button className="text-8xl self-end px-6">&times;</button>
+          <nav className="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+            <a href="#hero" className="w-full text-center py-6 hover:opacity-90">Home</a>
+            <a href="#rockets" className="w-full text-center py-6 hover:opacity-90">Our Rockets</a>
+            <a href="#testimonials" className="w-full text-center py-6 hover:opacity-90">Testimonials</a>
+            <a href="#contact" className="w-full text-center py-6 hover:opacity-90">Contact Us</a>
+            <a href="#footer" className="w-full text-center py-6 hover:opacity-90">Legal</a>
+          </nav>
+        </section>
       </header>
       <main className="max-w-4xl mx-auto">
         <section
@@ -60,7 +93,10 @@ export default function Home() {
           <img className="w-1/2" src="./img/rocketdab.png" alt="rocketdab" />
         </section>
         <hr className="mx-auto bg-black dark:bg-white w-1/2" />
-        <section id="rockets" className="p-6 my-12 scroll-mt-20 widescreen:section-min-height tallscreen:section-min-height">
+        <section
+          id="rockets"
+          className="p-6 my-12 scroll-mt-20 widescreen:section-min-height tallscreen:section-min-height"
+        >
           <h2 className="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
             Our Rockets
           </h2>
@@ -116,7 +152,10 @@ export default function Home() {
           </ul>
         </section>
         <hr className="mx-auto bg-black dark:bg-white w-1/2" />
-        <section id="testimonials" className="p-6 my-12 scroll-mt-20 widescreen:section-min-height tallscreen:section-min-height">
+        <section
+          id="testimonials"
+          className="p-6 my-12 scroll-mt-20 widescreen:section-min-height tallscreen:section-min-height"
+        >
           <h2 className="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
             Testimonials
           </h2>
@@ -164,7 +203,10 @@ export default function Home() {
           </figure>
         </section>
         <hr className="mx-auto bg-black dark:bg-white w-1/2" />
-        <section id="contact" className="p-6 my-12 scroll-mt-16 widescreen:section-min-height tallscreen:section-min-height">
+        <section
+          id="contact"
+          className="p-6 my-12 scroll-mt-16 widescreen:section-min-height tallscreen:section-min-height"
+        >
           <h2 className="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
             Contact Us
           </h2>
